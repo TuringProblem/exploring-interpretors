@@ -12,9 +12,9 @@ a = after;
 b = before;
 ```
 
-# LinkedLists:
+# [LinkedLists](https://en.wikipedia.org/wiki/Linked_list):
 
-## Main Components of a LinkedList
+## Main Components of a [LinkedList](https://en.wikipedia.org/wiki/Linked_list)
 
 *How this works*
 
@@ -33,12 +33,12 @@ b = before;
 
 ## Understanding each Method's implementation:
 
-### ***Node**
+### ***[Node](https://en.wikipedia.org/wiki/Node_(computer_science))***
 `What is a Node?`
 ------------------------------------------------
 A **Node** Contains two things:
-- A `Value` and a `Reference` (tech a Pointer but not really)
-***CLASS:***
+- A `Value` and a `Reference` (tech a [Pointer](https://en.wikipedia.org/wiki/Pointer_(computer_programming)) but not really)
+***[CLASS](https://en.wikipedia.org/wiki/Class_(computer_programming)):***
 ```java
 public class Node {
     int value;
@@ -49,16 +49,18 @@ public class Node {
 }
 ```
 ------------------------------------------------
-## Confused?
+## ~~Confused~~?<sub>OF COURSE NOT!</sub>
 - That's okay, I was too; the good news' is I'm going to break down what is going on!
 
 1) Value:
-    `int value;` -> represents the value that is being passed or inserted, or removed, etc...
+    - `int value;` -> represents the value that is being passed or inserted, or removed, etc...
 2) next:
-    `Node next` -> represent the value that the Node is "referencing" or "Pointing too". 
+    - `Node next` -> represent the value that the Node is "[referencing](https://en.wikipedia.org/wiki/Reference_(computer_science))" or "Pointing too". 
     The reason this value is not passed in the [constructor](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming)) is becuase the 
     only we thing we care about is the value that is in the Node, and the `Node next;` value is already considered `null` by default. 
 
+----------------------------------------------------------
+# Implementing each [Method]()
 
 --------------------------------------------
 # Full Implementation
@@ -163,7 +165,6 @@ public class LinkedList {
     // Insert Method
 
 }
-
 
 ```
 
