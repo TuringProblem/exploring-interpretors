@@ -14,29 +14,29 @@ b = before;
 
 # [LinkedLists](https://en.wikipedia.org/wiki/Linked_list):
 
-## Main Components of a [LinkedList](https://en.wikipedia.org/wiki/Linked_list)
+## Main Components of a LinkedList
 
 *How this works*
 
-**Name**(param) -> ***variables in method***
+[**Name**](#name)[(param)](#param) -> [***variables in method***](#var-in-meth)
 
-* void prepend(int value) -> nN, h, t, l++ 
-* void append(int value) -> nN, h, t, l++ 
-* Node removeFirst() -> temp, p, h, l--, t
-* Node removeLast() -> temp, h, l--, t 
-* boolean insert(int index, int value) -> l++, append(), nN, temp, get(index - 1)
-* Node remove(int index) -> l, removeFirst(), get(),  
-* void reverse() -> temp, h, t, (a, b ONLY USED HERE)
-* Node get(int index) -> temp, h
-* boolean set(int index, int value) -> temp 
-* void printList() -> temp
+[] void <a name="name">prepend</a><a name="param">(int value)</a> <a name="var-in-meth">-> nN, h, t, l++</a> 
+[] void append(int value) -> nN, h, t, l++ 
+[] Node removeFirst() -> temp, p, h, l--, t
+[] Node removeLast() -> temp, h, l--, t 
+[] boolean insert(int index, int value) -> l++, append(), nN, temp, get(index - 1)
+[] Node remove(int index) -> l, removeFirst(), get(),  
+[] void reverse() -> temp, h, t, (a, b ONLY USED HERE)
+[] Node get(int index) -> temp, h
+[] boolean set(int index, int value) -> temp 
+[] void printList() -> temp
 
 ## Understanding each Method's implementation:
 
 ### ***[Node](https://en.wikipedia.org/wiki/Node_(computer_science))***
 `What is a Node?`
 ------------------------------------------------
-A **Node** Contains two things:
+A <a name="node-anchor">**Node**</a> Contains two things:
 - A `Value` and a `Reference` (tech a [Pointer](https://en.wikipedia.org/wiki/Pointer_(computer_programming)) but not really)
 ***[CLASS](https://en.wikipedia.org/wiki/Class_(computer_programming)):***
 ```java
@@ -57,10 +57,13 @@ public class Node {
 2) next:
     - `Node next` -> represent the value that the Node is "[referencing](https://en.wikipedia.org/wiki/Reference_(computer_science))" or "Pointing too". 
     The reason this value is not passed in the [constructor](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming)) is becuase the 
-    only we thing we care about is the value that is in the Node, and the `Node next;` value is already considered `null` by default. 
-
+    only we thing we care about is the value that is in the [Node](), and the `Node next;` value is already considered `null` by default. 
 ----------------------------------------------------------
-# Implementing each [Method]()
+# Implementing each [Method](https://en.wikipedia.org/wiki/Method_(computer_programming))
+
+# Append
+
+
 
 --------------------------------------------
 # Full Implementation
@@ -163,11 +166,58 @@ public class LinkedList {
 
 
     // Insert Method
+    public boolean insert(int index, int value) {
+        if (index < 0 || index > l) return false;
+        if (index == 0) {
+            prepend(value);
+            return true;
+        }
+        if (index == l) {
+            append(value);
+            return true;
+        }
+        // Else we need to create the new Node from Scratch and add it
+        Node nN = new Node(value);
+        Node temp = get(index - 1);
+        nN.next = temp.next;
+        temp.next = null;
+        l++;
+        return true;
+    } 
+
+    // Remove Method
+    public Node remove(int index) {
+        if (index < 0 || index >= l) { return null; }
+        if (index == 0) { return removeFirst(); }
+        if (index == l - 1) { return removeLast(); }
+        Node prev = get(index - 1);
+        Node temp = prev.next;
+        prev.next = temp.next;
+        temp.next = null;
+        l--;
+        return temp;
+    }
+
+
+    // Reverse Method
+    public void reverse() {
+        Node temp = h;
+        h = t;
+        t = temp;
+        Node a = temp.next; // After
+        Node b = null; // Before
+
+        for (int i = 0; i < l; i++) {
+            a = temp.next;
+            temp.next = b;
+            b = temp;
+            temp = a;
+        }
+    }
 
 }
 
 ```
-
 
 --------------------------------------------------------------
 
