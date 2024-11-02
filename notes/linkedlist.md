@@ -12,32 +12,33 @@ a = after;
 b = before;
 ```
 
-# [LinkedLists](https://en.wikipedia.org/wiki/Linked_list):
 
-## Main Components of a LinkedList
+# LinkedLists:
+
+## Main Components of a [LinkedList](https://en.wikipedia.org/wiki/Linked_list)
 
 *How this works*
 
-[**Name**](#name)[(param)](#param) -> [***variables in method***](#var-in-meth)
+**Name**(param) -> ***variables in method***
 
-[] void <a name="name">prepend</a><a name="param">(int value)</a> <a name="var-in-meth">-> nN, h, t, l++</a> 
-[] void append(int value) -> nN, h, t, l++ 
-[] Node removeFirst() -> temp, p, h, l--, t
-[] Node removeLast() -> temp, h, l--, t 
-[] boolean insert(int index, int value) -> l++, append(), nN, temp, get(index - 1)
-[] Node remove(int index) -> l, removeFirst(), get(),  
-[] void reverse() -> temp, h, t, (a, b ONLY USED HERE)
-[] Node get(int index) -> temp, h
-[] boolean set(int index, int value) -> temp 
-[] void printList() -> temp
+- [ ] void [prepend(int value)]()-> nN, h, t, l++</a> 
+- [ ] void [append(int value)](#append-anchor) -> nN, h, t, l++ 
+- [ ] Node [removeFirst()]() -> temp, p, h, l--, t
+- [ ] Node [removeLast()]() -> temp, h, l--, t 
+- [ ] boolean [insert(int index, int value)]() -> l++, append(), nN, temp, get(index - 1)
+- [ ] Node [remove(int index)]() -> l, removeFirst(), get(),  
+- [ ] void [reverse()]() -> temp, h, t, (a, b ONLY USED HERE)
+- [ ] Node [get(int index)]() -> temp, h
+- [ ] boolean [set(int index, int value)]() -> temp 
+- [ ] void [printList()]() -> temp
 
 ## Understanding each Method's implementation:
 
-### ***[Node](https://en.wikipedia.org/wiki/Node_(computer_science))***
-`What is a Node?`
+### ***Node***
+*What is a* [Node?](https://en.wikipedia.org/wiki/Node_(computer_science))
 ------------------------------------------------
 A <a name="node-anchor">**Node**</a> Contains two things:
-- A `Value` and a `Reference` (tech a [Pointer](https://en.wikipedia.org/wiki/Pointer_(computer_programming)) but not really)
+- A `Value` and a <a name="`Reference` (tech a [Pointer](https://en.wikipedia.org/wiki/Pointer_(computer_programming)) but not really)
 ***[CLASS](https://en.wikipedia.org/wiki/Class_(computer_programming)):***
 ```java
 public class Node {
@@ -61,7 +62,34 @@ public class Node {
 ----------------------------------------------------------
 # Implementing each [Method](https://en.wikipedia.org/wiki/Method_(computer_programming))
 
-# Append
+# <a name="append-anchor">Append</a>
+
+```java
+public void append(int value) {}
+```
+**Before We continue with the method** It's important to understand that the `value` we are looking for
+is the value of the [Node](#node-anchor).
+
+```java
+public void append(int value) {
+    Node nN = new Node(value);
+    if (l == 0) {
+        h = nN;
+        t = nN;
+    } else {
+        t.next = nN;
+        t = nN;
+    }
+    l++
+}
+```
+All we are doing are **Two** things:
+
+1) Checking if the `Length` of the list is `equal to`  **0**.
+    - [x] equal to 0?
+        - `Head` points to that `New Node` and so does `Tail`
+    - [ ] equal to 0?
+        - All we need to do is set the [Reference]()
 
 
 
