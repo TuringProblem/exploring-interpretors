@@ -64,6 +64,9 @@ public class Node {
 
 # <a name="append-anchor">Append</a>
 
+### ***Type:*** `void`
+### ***Params:*** `(int value)`
+
 ```java
 public void append(int value) {}
 ```
@@ -93,6 +96,55 @@ All we are doing are **Two** things:
 
 
 
+
+
+
+
+
+------------------------------------------------------
+# Prepend
+
+
+### ***Type:*** `void`
+### ***Params:*** `(int value)`
+
+*Let's* look at the append method before adding anything:
+```java
+public void append(int value) {}
+```
+## First
+1) We want to add a new Node
+```java
+public void append(int value) {
+    Node nN = new Node(value);
+    if (l == 0) {
+        h = nN;
+        t = nN;
+    } else {
+        nN.next = h;
+        h = nN;
+    } 
+    l++;
+}
+```
+1) Checking if the `Length` of the list is `equal to`  **0**.
+    - [x] equal to 0?
+        - `Head` points to that `New Node` and so does `Tail`
+    - [ ] equal to 0?
+        - All we need to do is set the [Reference]()
+
+
+
+
+------------------------------------------------------
+
+# RemoveLast 
+### ***Type:*** `Node`
+### ***Params:*** `(int value)`
+
+```java
+public Node removeLast(int value) {}
+```
 --------------------------------------------
 # Full Implementation
 
@@ -155,6 +207,20 @@ public class LinkedList {
         return temp; // Returning the value that you are removing (temp)
     }
 
+
+    // Prepend Method
+
+    public void prepend(int value) {
+        Node nN = new Node(value);
+        if (l == 0) {
+            h = nN;
+            t = nN;
+        } else {
+            nN.next = h;
+            h = nN;
+        }
+        l++;
+    }
 
     // RemoveFirst Method
     public Node removeFirst(int value) {
