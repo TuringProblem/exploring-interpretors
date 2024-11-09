@@ -2,6 +2,7 @@
 #define CLOX_SCANNER_H
 
 enum TokenType {
+
   LOX_TLEFT_PAREN,
   LOX_TRIGHT_PAREN,
   LOX_TLEFT_BRACE,
@@ -51,6 +52,7 @@ enum TokenType {
 
   LOX_TERROR,
   LOX_TEOF
+
 };
 
 struct Token {
