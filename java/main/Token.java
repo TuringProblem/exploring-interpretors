@@ -1,8 +1,10 @@
 package java.main.Token;
 
+//lexemes -> are only the raw substrings of the source code
+
 public class Token {
   final TokenType type;
-  final String tokenGroup
+  final String lexemes; 
   final Object literal;
   final int line;
 
@@ -12,9 +14,10 @@ public class Token {
     this.literal = literal;
     this.line = line;
   }
+  // Outputing the Token Type, Group that it is associated with and the Literal value
   @Override
   public String toString() {
-    return type + " " + tokenGroup + " " + literal;
+    return type + " " + lexemes + " " + literal;
   }
 }
 
